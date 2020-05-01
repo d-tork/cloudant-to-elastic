@@ -1,16 +1,17 @@
 #!/bin/bash
 RAWFILEPATH="$PWD/homes_raw.json"
 CLEANFILEPATH="$PWD/homes_clean.json"
+CREDSFILEPATH="$PWD/service_creds.json"
 
-# Doc limit arg passed on command line? 
+# Doc limit arg passed on command line, but optional
 if
 		[ $# \> 0 ]; then
 		DOCLIMIT=true
 fi
 
-# Download documents from Cloudant, if not already
+# Download documents from Cloudant
 curl \
-		-u "`python get_creds.py service_creds.json`" \
+		-u "`python get_creds.py $CREDSFILEPATH`" \
 		-X GET "https://b0872728-906f-4b36-8ec6-83e7eb5ae492-bluemix.cloudantnosqldb.appdomain.cloud/deathpledge_clean/_all_docs?include_docs=True" \
 		-o $RAWFILEPATH
 

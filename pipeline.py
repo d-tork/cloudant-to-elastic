@@ -5,24 +5,28 @@ import json
 import argparse
 import sys
 
-class cli_args:
-    pass
-
-cli = cli_args()
-
 # Read command line arguments
 parser = argparse.ArgumentParser(
-        description='Process JSON from Cloudant, for Elasticsearch.'
-        )
-parser.add_argument('inputfile', metavar='INPUT',
-        help='JSON file from Cloudant bulk docs request')
-parser.add_argument('--outfile', metavar='OUTPUT', default='homes_clean.json',
-        help='JSON file to send to Elasticsearch')
-parser.add_argument('--index', nargs='?', default=None, dest='index_name',
-        help='Name of index to send to, if not "homes"')
-parser.add_argument('--limit', nargs='?', default=None, dest='doclimit',
-        type=int,
-        help='Number of docs to process for Elasticsearch')
+    description='Process JSON from Cloudant, for Elasticsearch.'
+    )
+parser.add_argument('inputfile',
+                    metavar='INPUT',
+                    help='JSON file from Cloudant bulk docs request')
+parser.add_argument('--outfile', 
+                    metavar='OUTPUT', 
+                    default='homes_clean.json',
+                    help='JSON file to send to Elasticsearch')
+parser.add_argument('--index',
+                    nargs='?',
+                    default=None,
+                    dest='index_name',
+                    help='Name of index to send to, if not "homes"')
+parser.add_argument('--limit',
+                    nargs='?',
+                    default=None,
+                    dest='doclimit',
+                    type=int,
+                    help='Number of docs to process for Elasticsearch')
 
 args = parser.parse_args()
 
