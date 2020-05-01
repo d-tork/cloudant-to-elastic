@@ -24,9 +24,9 @@ fi
 
 # Process JSON response into JSONlines
 if [ "$DOCLIMIT" = true ]; then
-		./pipeline.py $RAWFILEPATH --outfile=$CLEANFILEPATH --limit=$1
+		python pipeline.py $RAWFILEPATH --outfile=$CLEANFILEPATH --limit=$1
 else
-		./pipeline.py $RAWFILEPATH --outfile=$CLEANFILEPATH
+		python pipeline.py $RAWFILEPATH --outfile=$CLEANFILEPATH
 fi
 
 if [ $? -eq 0 ]; then
