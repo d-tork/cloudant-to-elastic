@@ -40,7 +40,28 @@ docs = resp['rows'][:args.doclimit]
 
 
 def prep_doc_for_es(doc):
-    """Create action line for elasticsearch ingest for each source doc."""
+    """Create action line for elasticsearch ingest for each source doc.
+
+    Future note
+    ===========
+    Rearrangement of the doc id here to use as the elasticsearch
+    metadata _id can also be handled with a pipeline script::
+
+        POST /_ingest/pipeline/deathpledge
+        {
+          "pipeline": {
+            "processors": [
+              {
+                "script": {
+                  "lang": "painless",
+                  "source": "ctx['_id'] = ctx['docid'];"
+                }
+              }
+            ]
+          }
+        }
+
+    """
     source = doc['doc']  # the actual data
     docid = source.pop('_id', None)
 
