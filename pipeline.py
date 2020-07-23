@@ -65,6 +65,8 @@ def prep_doc_for_es(doc):
     source = doc['doc']  # the actual data
     docid = source.pop('_id', None)
 
+    # TODO: set index as whatever the doctype is (from Cloudant)
+    # in the future, this will route homes, listings, and scorecards to the appropriate ES indexes
     action = {'index': {'_index': args.index_name, '_id': docid}}
     return action, source
 
