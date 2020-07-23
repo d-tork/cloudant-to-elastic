@@ -43,6 +43,6 @@ ls -lh | grep json
 # Send to Elasticsearch
 curl \
 		-H "Content-Type: application/x-ndjson" \
-		-XPOST "localhost:9200/homes/_bulk?pretty" \
+		-XPOST "synapse:9200/homes/_bulk?pretty" \
 		--data-binary "@$CLEANFILEPATH"
 
