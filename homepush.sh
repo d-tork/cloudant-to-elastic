@@ -4,6 +4,9 @@ CLEANFILEPATH="$PWD/homes_clean.json"
 CREDSFILEPATH="$PWD/service_creds.json"
 PYPATH="$PWD/venv-pipeline/bin/python"
 
+# Index name to push to
+INDEX="homes-20200807"
+
 # Doc limit arg passed on command line, but optional
 if
 		[ $# \> 0 ]; then
@@ -43,6 +46,6 @@ ls -lh | grep json
 # Send to Elasticsearch
 curl \
 		-H "Content-Type: application/x-ndjson" \
-		-XPOST "synapse:9200/homes/home/_bulk?pretty" \
+		-XPOST "synapse:9200/$INDEX/home/_bulk?pretty" \
 		--data-binary "@$CLEANFILEPATH"
 
