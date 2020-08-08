@@ -13,7 +13,7 @@ fi
 # Download documents from Cloudant
 curl \
 		-u "`$PYPATH get_creds.py $CREDSFILEPATH`" \
-		-X GET "https://b0872728-906f-4b36-8ec6-83e7eb5ae492-bluemix.cloudantnosqldb.appdomain.cloud/deathpledge_clean/_all_docs?include_docs=True" \
+		-X GET "https://b0872728-906f-4b36-8ec6-83e7eb5ae492-bluemix.cloudantnosqldb.appdomain.cloud/deathpledge_clean_flat/_all_docs?include_docs=True" \
 		-o $RAWFILEPATH
 
 # Ensure cURL completes
@@ -43,6 +43,6 @@ ls -lh | grep json
 # Send to Elasticsearch
 curl \
 		-H "Content-Type: application/x-ndjson" \
-		-XPOST "synapse:9200/homes/_bulk?pretty" \
+		-XPOST "synapse:9200/homes/home/_bulk?pretty" \
 		--data-binary "@$CLEANFILEPATH"
 
