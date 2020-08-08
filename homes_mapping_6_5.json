@@ -20,6 +20,8 @@
   "work_commute": {"type": "integer"},
   "first_walk_mins": {"type": "float"},
   "first_leg_type": {"type": "keyword"},
-  "geocoords": {"type": "geo_point"}
+  "geocoords": {"type": "geo_point"},
+  "listing_history.from": {"type": "keyword", "index":false},
+  "listing_history.to": {"type": "keyword", "index":false}
   }
 }
