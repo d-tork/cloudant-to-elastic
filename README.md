@@ -25,3 +25,12 @@ You may need to edit `pipeline.py` shebang to point to the correct python execut
 if you intend on running it by itself (for testing), but otherwise the shell
 script just calls `python` normally.
 
+## Index mapping
+For now, until I put together a good bash script, paste the mapping JSON into the dev console under
+
+```
+PUT /homes/home/_mapping
+```
+because Elasticsearch 6.5 requires the mapping to be defined per `_type` (whereas they did away
+with that field in later versions).
+
