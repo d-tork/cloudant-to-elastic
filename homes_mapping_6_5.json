@@ -1,0 +1,25 @@
+{
+  "properties": {
+  "doctype": {"type": "keyword"},
+  "url": {"type": "text"},
+  "scraped_time": {"type": "date"},
+  "full_address": {"type": "text"},
+  "beds": {"type": "integer"},
+  "baths": {"type": "float"},
+  "sqft": {"type": "integer"},
+  "badge": {"type": "keyword"},
+  "list_price": {"type": "double"},
+  "sale_price": {"type": "double"},
+  "unit_building_type": {"type": "text"},
+  "mls_number": {"type": "keyword"},
+  "description": {"type": "text"},
+  "has_basement": {"type": "keyword"},
+  "parking_features": {"type": "keyword"},
+  "assigned_spaces_count": {"type": "integer"},
+  "condocoop_fee": {"type": "text"},
+  "work_commute": {"type": "integer"},
+  "first_walk_mins": {"type": "float"},
+  "first_leg_type": {"type": "keyword"},
+  "geocoords": {"type": "geo_point"}
+  }
+}
